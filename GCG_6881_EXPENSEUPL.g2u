@@ -1,0 +1,791 @@
+﻿Program.Sub.ScreenSU.Start
+Gui.F_AP_UPLOAD..create(BaseForm)
+Gui.F_AP_UPLOAD..caption("Universal expense uploader (6881)")
+Gui.F_AP_UPLOAD..size(5235,2385)
+Gui.F_AP_UPLOAD..position(0,0)
+Gui.F_AP_UPLOAD..event(UnLoad,UnLoad)
+Gui.F_AP_UPLOAD..alwaysontop(False)
+Gui.F_AP_UPLOAD..fontname("Arial")
+Gui.F_AP_UPLOAD..fontsize(8)
+Gui.F_AP_UPLOAD..forecolor(0)
+Gui.F_AP_UPLOAD..BackColor(-2147483633)
+Gui.F_AP_UPLOAD..controlbox(True)
+Gui.F_AP_UPLOAD..maxbutton(False)
+Gui.F_AP_UPLOAD..minbutton(True)
+Gui.F_AP_UPLOAD..mousepointer(0)
+Gui.F_AP_UPLOAD..moveable(True)
+Gui.F_AP_UPLOAD..sizeable(False)
+Gui.F_AP_UPLOAD..ShowInTaskBar(True)
+Gui.F_AP_UPLOAD..titlebar(True)
+Gui.F_AP_UPLOAD..MinX(0)
+Gui.F_AP_UPLOAD..MinY(0)
+Gui.F_AP_UPLOAD.txtFile.create(textbox,"",True,4455,300,0,180,375,True,0,"Arial",8,-2147483643,1)
+Gui.F_AP_UPLOAD.dtpBatch.create(datepicker)
+Gui.F_AP_UPLOAD.dtpBatch.visible(True)
+Gui.F_AP_UPLOAD.dtpBatch.size(1935,300)
+Gui.F_AP_UPLOAD.dtpBatch.zorder(0)
+Gui.F_AP_UPLOAD.dtpBatch.position(180,1035)
+Gui.F_AP_UPLOAD.dtpBatch.enabled(True)
+Gui.F_AP_UPLOAD.dtpBatch.checkbox(False)
+Gui.F_AP_UPLOAD.dtpBatch.FontName("Tahoma")
+Gui.F_AP_UPLOAD.dtpBatch.FontSize(8.25)
+Gui.F_AP_UPLOAD.lbl1.create(label,"File",True,240,210,1,180,105,True,0,"Arial",8,-2147483633,0,0)
+Gui.F_AP_UPLOAD.lbl1.BorderStyle(0)
+Gui.F_AP_UPLOAD.lbl2.create(label,"Batch Date",True,795,210,1,180,750,True,0,"Arial",8,-2147483633,0,0)
+Gui.F_AP_UPLOAD.lbl2.BorderStyle(0)
+Gui.F_AP_UPLOAD.cmdBrowser.create(button)
+Gui.F_AP_UPLOAD.cmdBrowser.caption("^")
+Gui.F_AP_UPLOAD.cmdBrowser.visible(True)
+Gui.F_AP_UPLOAD.cmdBrowser.size(345,345)
+Gui.F_AP_UPLOAD.cmdBrowser.zorder(0)
+Gui.F_AP_UPLOAD.cmdBrowser.position(4725,345)
+Gui.F_AP_UPLOAD.cmdBrowser.enabled(True)
+Gui.F_AP_UPLOAD.cmdBrowser.fontname("Arial")
+Gui.F_AP_UPLOAD.cmdBrowser.fontsize(8)
+Gui.F_AP_UPLOAD.cmdBrowser.event(Click,cmdbrowser_click)
+Gui.F_AP_UPLOAD.cmdOK.create(button)
+Gui.F_AP_UPLOAD.cmdOK.caption("OK")
+Gui.F_AP_UPLOAD.cmdOK.visible(True)
+Gui.F_AP_UPLOAD.cmdOK.size(855,375)
+Gui.F_AP_UPLOAD.cmdOK.zorder(0)
+Gui.F_AP_UPLOAD.cmdOK.position(180,1440)
+Gui.F_AP_UPLOAD.cmdOK.enabled(True)
+Gui.F_AP_UPLOAD.cmdOK.fontname("Arial")
+Gui.F_AP_UPLOAD.cmdOK.fontsize(8)
+Gui.F_AP_UPLOAD.cmdOK.event(Click,cmdok_click)
+Gui.fMapMaint..Create(BaseForm)
+Gui.fMapMaint..Caption("Universal Expense upload mapper (6881)")
+Gui.fMapMaint..Size(8460,4500)
+Gui.fMapMaint..MinX(0)
+Gui.fMapMaint..MinY(0)
+Gui.fMapMaint..Position(0,0)
+Gui.fMapMaint..AlwaysOnTop(False)
+Gui.fMapMaint..FontName("Tahoma")
+Gui.fMapMaint..FontSize(8.25)
+Gui.fMapMaint..ControlBox(True)
+Gui.fMapMaint..MaxButton(False)
+Gui.fMapMaint..MinButton(True)
+Gui.fMapMaint..MousePointer(0)
+Gui.fMapMaint..Moveable(True)
+Gui.fMapMaint..Sizeable(False)
+Gui.fMapMaint..ShowInTaskBar(True)
+Gui.fMapMaint..TitleBar(True)
+Gui.fMapMaint..Event(UnLoad,UnLoad)
+Gui.fMapMaint.chkHeaderLn.Create(CheckBox)
+Gui.fMapMaint.chkHeaderLn.Enabled(True)
+Gui.fMapMaint.chkHeaderLn.Visible(True)
+Gui.fMapMaint.chkHeaderLn.Zorder(0)
+Gui.fMapMaint.chkHeaderLn.Size(2175,300)
+Gui.fMapMaint.chkHeaderLn.Position(240,135)
+Gui.fMapMaint.chkHeaderLn.Caption("File contains header line")
+Gui.fMapMaint.chkHeaderLn.FontName("Tahoma")
+Gui.fMapMaint.chkHeaderLn.FontSize(8.25)
+Gui.fMapMaint.chkHeaderLn.ToolTip("Check if the file has a header line")
+Gui.fMapMaint.txtInvoiceDate.Create(TextBox,"0",True,630,300,0,6945,1170,True,0,"Tahoma",8.25,,1)
+Gui.fMapMaint.txtInvoiceDate.NumericOnly(2)
+Gui.fMapMaint.txtInvoiceDate.DefaultValue("0")
+Gui.fMapMaint.txtInvoiceDate.MaxLength(2)
+Gui.fMapMaint.txtInvoiceDate.TabStop(True)
+Gui.fMapMaint.txtInvoiceDate.TabIndex(3)
+Gui.fMapMaint.lbl1.Create(Label,"Invoice Date *",True,1230,195,0,5625,1230,True,0,"Tahoma",8.25,,0,0)
+Gui.fMapMaint.lbl1.BorderStyle(0)
+Gui.fMapMaint.lbl1.DefaultValue("")
+Gui.fMapMaint.lbl1.FontStyle(True,False,False,False,False)
+Gui.fMapMaint.lbl2.Create(Label,"Specify the column number as they exist in the file for the type of data that we are referencing",True,8010,195,0,255,540,True,0,"Tahoma",8.25,,0,0)
+Gui.fMapMaint.lbl2.BorderStyle(0)
+Gui.fMapMaint.lbl2.FontStyle(True,False,False,False,False)
+Gui.fMapMaint.txtVendorID.Create(TextBox,"0",True,630,300,0,1560,1170,True,0,"Tahoma",8.25,,1)
+Gui.fMapMaint.txtVendorID.NumericOnly(2)
+Gui.fMapMaint.txtVendorID.DefaultValue("0")
+Gui.fMapMaint.txtVendorID.MaxLength(2)
+Gui.fMapMaint.txtVendorID.TabStop(True)
+Gui.fMapMaint.txtVendorID.TabIndex(1)
+Gui.fMapMaint.lbl3.Create(Label,"Vendor ID *",True,990,195,0,240,1230,True,0,"Tahoma",8.25,,0,0)
+Gui.fMapMaint.lbl3.BorderStyle(0)
+Gui.fMapMaint.lbl3.DefaultValue("")
+Gui.fMapMaint.lbl3.ToolTip("This will need to be the GSS vendor ID. If this is an expense upload the employee should be setup as a vendor")
+Gui.fMapMaint.lbl3.FontStyle(True,False,False,False,False)
+Gui.fMapMaint.lbl4.Create(Label,"Invoice No *",True,1035,195,0,2865,1230,True,0,"Tahoma",8.25,,0,0)
+Gui.fMapMaint.lbl4.BorderStyle(0)
+Gui.fMapMaint.lbl4.DefaultValue("")
+Gui.fMapMaint.lbl4.ToolTip("This would be the unique invoice that would group the records in the file into a unique batch. You can have multiple invoices in a file.")
+Gui.fMapMaint.lbl4.FontStyle(True,False,False,False,False)
+Gui.fMapMaint.txtInvoiceNo.Create(TextBox,"0",True,630,300,0,4185,1170,True,0,"Tahoma",8.25,,1)
+Gui.fMapMaint.txtInvoiceNo.NumericOnly(2)
+Gui.fMapMaint.txtInvoiceNo.DefaultValue("0")
+Gui.fMapMaint.txtInvoiceNo.MaxLength(2)
+Gui.fMapMaint.txtInvoiceNo.TabStop(True)
+Gui.fMapMaint.txtInvoiceNo.TabIndex(2)
+Gui.fMapMaint.lbl5.Create(Label,"Amount *",True,825,195,0,240,1770,True,0,"Tahoma",8.25,,0,0)
+Gui.fMapMaint.lbl5.BorderStyle(0)
+Gui.fMapMaint.lbl5.DefaultValue("")
+Gui.fMapMaint.lbl5.ToolTip("The amount on the invoice.")
+Gui.fMapMaint.lbl5.FontStyle(True,False,False,False,False)
+Gui.fMapMaint.txtAmt.Create(TextBox,"0",True,630,300,0,1560,1710,True,0,"Tahoma",8.25,,1)
+Gui.fMapMaint.txtAmt.NumericOnly(2)
+Gui.fMapMaint.txtAmt.DefaultValue("0")
+Gui.fMapMaint.txtAmt.MaxLength(2)
+Gui.fMapMaint.txtAmt.TabStop(True)
+Gui.fMapMaint.txtAmt.TabIndex(4)
+Gui.fMapMaint.lbl6.Create(Label,"GL Account *",True,1095,195,0,2865,1770,True,0,"Tahoma",8.25,,0,0)
+Gui.fMapMaint.lbl6.BorderStyle(0)
+Gui.fMapMaint.lbl6.DefaultValue("")
+Gui.fMapMaint.lbl6.ToolTip("The global shop GL account")
+Gui.fMapMaint.lbl6.FontStyle(True,False,False,False,False)
+Gui.fMapMaint.txtGLAcct.Create(TextBox,"0",True,630,300,0,4185,1710,True,0,"Tahoma",8.25,,1)
+Gui.fMapMaint.txtGLAcct.NumericOnly(2)
+Gui.fMapMaint.txtGLAcct.DefaultValue("0")
+Gui.fMapMaint.txtGLAcct.MaxLength(2)
+Gui.fMapMaint.txtGLAcct.TabStop(True)
+Gui.fMapMaint.txtGLAcct.TabIndex(5)
+Gui.fMapMaint.lbl7.Create(Label,"Invoice Notes",True,990,195,0,240,3180,True,0,"Tahoma",8.25,,0,0)
+Gui.fMapMaint.lbl7.BorderStyle(0)
+Gui.fMapMaint.lbl7.DefaultValue("")
+Gui.fMapMaint.lbl7.ToolTip("Invoice notes if you have it")
+Gui.fMapMaint.txtInvNotes.Create(TextBox,"0",True,630,300,0,1575,3135,True,0,"Tahoma",8.25,,1)
+Gui.fMapMaint.txtInvNotes.NumericOnly(2)
+Gui.fMapMaint.txtInvNotes.DefaultValue("0")
+Gui.fMapMaint.txtInvNotes.MaxLength(2)
+Gui.fMapMaint.txtInvNotes.TabStop(True)
+Gui.fMapMaint.txtInvNotes.TabIndex(11)
+Gui.fMapMaint.lbl8.Create(Label,"Supplemental Fields",True,1410,195,0,240,2235,True,0,"Tahoma",8.25,,0,0)
+Gui.fMapMaint.lbl8.BorderStyle(0)
+Gui.fMapMaint.lbl8.FontStyle(False,False,True,False,False)
+Gui.fMapMaint.lbl9.Create(Label,"Job",True,255,195,0,240,2670,True,0,"Tahoma",8.25,,0,0)
+Gui.fMapMaint.lbl9.BorderStyle(0)
+Gui.fMapMaint.lbl9.DefaultValue("")
+Gui.fMapMaint.lbl9.ToolTip("This is the WO number if you want this linked to the job. if you map this field and leave it empty, it will ignore the field")
+Gui.fMapMaint.txtJob.Create(TextBox,"0",True,630,300,0,1560,2610,True,0,"Tahoma",8.25,,1)
+Gui.fMapMaint.txtJob.NumericOnly(2)
+Gui.fMapMaint.txtJob.DefaultValue("0")
+Gui.fMapMaint.txtJob.MaxLength(2)
+Gui.fMapMaint.txtJob.TabStop(True)
+Gui.fMapMaint.txtJob.TabIndex(7)
+Gui.fMapMaint.lbl10.Create(Label,"Suffix",True,420,195,0,2865,2670,True,0,"Tahoma",8.25,,0,0)
+Gui.fMapMaint.lbl10.BorderStyle(0)
+Gui.fMapMaint.lbl10.DefaultValue("")
+Gui.fMapMaint.lbl10.ToolTip("This is the job suffix.")
+Gui.fMapMaint.txtSuffix.Create(TextBox,"0",True,630,300,0,4185,2610,True,0,"Tahoma",8.25,,1)
+Gui.fMapMaint.txtSuffix.NumericOnly(2)
+Gui.fMapMaint.txtSuffix.DefaultValue("0")
+Gui.fMapMaint.txtSuffix.MaxLength(2)
+Gui.fMapMaint.txtSuffix.TabStop(True)
+Gui.fMapMaint.txtSuffix.TabIndex(8)
+Gui.fMapMaint.lbl11.Create(Label,"Seq",True,270,195,0,5625,2670,True,0,"Tahoma",8.25,,0,0)
+Gui.fMapMaint.lbl11.BorderStyle(0)
+Gui.fMapMaint.lbl11.DefaultValue("")
+Gui.fMapMaint.lbl11.ToolTip("You can map the sequence. If you have the job and suffix mapped and they contain a value, you can either have the file pass the seq, else we will map it to the default Seq you specify")
+Gui.fMapMaint.txtSeq.Create(TextBox,"0",True,630,300,0,6945,2610,True,0,"Tahoma",8.25,,1)
+Gui.fMapMaint.txtSeq.NumericOnly(2)
+Gui.fMapMaint.txtSeq.DefaultValue("0")
+Gui.fMapMaint.txtSeq.MaxLength(2)
+Gui.fMapMaint.txtSeq.TabStop(True)
+Gui.fMapMaint.txtSeq.TabIndex(9)
+Gui.fMapMaint.lbl12.Create(Label,"Invoice Due Date",True,1245,195,0,5625,1770,True,0,"Tahoma",8.25,,0,0)
+Gui.fMapMaint.lbl12.BorderStyle(0)
+Gui.fMapMaint.lbl12.DefaultValue("")
+Gui.fMapMaint.lbl12.ToolTip("The invoice due date if you wish to specify. If you do not have this, we will calculate the due date based on the payment days for the vendor.")
+Gui.fMapMaint.txtInvDueDate.Create(TextBox,"0",True,630,300,0,6945,1710,True,0,"Tahoma",8.25,,1)
+Gui.fMapMaint.txtInvDueDate.NumericOnly(2)
+Gui.fMapMaint.txtInvDueDate.DefaultValue("0")
+Gui.fMapMaint.txtInvDueDate.MaxLength(2)
+Gui.fMapMaint.txtInvDueDate.TabStop(True)
+Gui.fMapMaint.txtInvDueDate.TabIndex(6)
+Gui.fMapMaint.lbl13.Create(Label,"PO",True,210,195,0,2865,3180,True,0,"Tahoma",8.25,,0,0)
+Gui.fMapMaint.lbl13.BorderStyle(0)
+Gui.fMapMaint.lbl13.DefaultValue("")
+Gui.fMapMaint.lbl13.ToolTip("This is the PO just for reference")
+Gui.fMapMaint.txtPO.Create(TextBox,"0",True,630,300,0,4200,3135,True,0,"Tahoma",8.25,,1)
+Gui.fMapMaint.txtPO.NumericOnly(2)
+Gui.fMapMaint.txtPO.DefaultValue("0")
+Gui.fMapMaint.txtPO.MaxLength(2)
+Gui.fMapMaint.txtPO.TabStop(True)
+Gui.fMapMaint.txtPO.TabIndex(12)
+Gui.fMapMaint.lbl14.Create(Label,"Default Seq",True,840,195,0,5625,3180,True,0,"Tahoma",8.25,,0,0)
+Gui.fMapMaint.lbl14.BorderStyle(0)
+Gui.fMapMaint.lbl14.DefaultValue("")
+Gui.fMapMaint.lbl14.ToolTip("Only necessary if the Job and suffix are specied and if there is noting in the Sequence column")
+Gui.fMapMaint.ddlDefSeq.Create(DropDownList)
+Gui.fMapMaint.ddlDefSeq.Enabled(True)
+Gui.fMapMaint.ddlDefSeq.Visible(True)
+Gui.fMapMaint.ddlDefSeq.Zorder(0)
+Gui.fMapMaint.ddlDefSeq.Size(1140,300)
+Gui.fMapMaint.ddlDefSeq.Position(6945,3120)
+Gui.fMapMaint.ddlDefSeq.FontName("Tahoma")
+Gui.fMapMaint.ddlDefSeq.FontSize(8.25)
+Gui.fMapMaint.ddlDefSeq.DefaultValue("995000")
+Gui.fMapMaint.ddlDefSeq.TabStop(True)
+Gui.fMapMaint.ddlDefSeq.TabIndex(10)
+Gui.fMapMaint.cmdSave.Create(Button)
+Gui.fMapMaint.cmdSave.Enabled(True)
+Gui.fMapMaint.cmdSave.Visible(True)
+Gui.fMapMaint.cmdSave.Zorder(0)
+Gui.fMapMaint.cmdSave.Size(1125,345)
+Gui.fMapMaint.cmdSave.Position(6945,3630)
+Gui.fMapMaint.cmdSave.Caption("Save")
+Gui.fMapMaint.cmdSave.FontName("Tahoma")
+Gui.fMapMaint.cmdSave.FontSize(8.25)
+Gui.fMapMaint.cmdSave.Event(Click,cmdSave_Click)
+Gui.fMapMaint.cmdSave.TabStop(True)
+Gui.fMapMaint.cmdSave.TabIndex(14)
+Gui.fMapMaint.lbl15.Create(Label,"Count the column numbers starting from 1. we can support files that have upto 99 columns.",True,5670,165,0,240,780,True,0,"Tahoma",7,,0,0)
+Gui.fMapMaint.lbl15.BorderStyle(0)
+Gui.fMapMaint.lbl16.Create(Label,"Branch**",True,675,195,0,240,3720,True,0,"Tahoma",8.25,,0,0)
+Gui.fMapMaint.lbl16.BorderStyle(0)
+Gui.fMapMaint.lbl16.ToolTip("If you are uploading from corporate and want to map a field to indicate the branch for the invoice, you can use this field to map.")
+Gui.fMapMaint.lbl16.DefaultValue("")
+Gui.fMapMaint.txtBranch.Create(TextBox,"0",True,630,300,0,1560,3660,True,0,"Tahoma",8.25,,1)
+Gui.fMapMaint.txtBranch.MaxLength(2)
+Gui.fMapMaint.txtBranch.NumericOnly(2)
+Gui.fMapMaint.txtBranch.DefaultValue("0")
+Gui.fMapMaint.txtBranch.TabStop(True)
+Gui.fMapMaint.txtBranch.TabIndex(13)
+Program.Sub.ScreenSU.End
+Program.Sub.Preflight.Start
+v.Global.sProcFolder.Declare
+v.Global.sProcFile.Declare
+v.Global.sFile.Declare
+v.Global.sBranch.Declare
+v.Global.dDate.Declare("Date","09/20/2022")
+v.Global.sProfile.Declare("String","FIRST")
+Variable.UDT.uUpload.Define("Vendor",String)
+Variable.UDT.uUpload.Define("Invoice",String)
+Variable.UDT.uUpload.Define("GL",String)
+Variable.UDT.uUpload.Define("InvoiceDate",String)
+Variable.UDT.uUpload.Define("InvoiceAmt",String)
+Variable.UDT.uUpload.Define("InvoiceDDate",String)
+Variable.UDT.uUpload.Define("WO",String)
+Variable.UDT.uUpload.Define("Sfx",String)
+Variable.UDT.uUpload.Define("Seq",String)
+Variable.UDT.uUpload.Define("Column31",String)
+Variable.UDT.uUpload.Define("InvoiceDueDate",String)
+Variable.UDT.uUpload.Define("PO",String)
+Variable.UDT.uUpload.Define("InvoiceNotes",String)
+Variable.UDT.uUpload.Define("Branch",String)
+Variable.uGlobal.uUpload.Declare("uUpload")
+Variable.Global.BatchDate.Declare(String)
+Program.External.Include.Library("AP043UP1.lib")
+Program.Sub.Preflight.End
+Program.Sub.Main.Start
+F.Intrinsic.Control.Try
+V.Local.sError.Declare
+	F.ODBC.Connection!Conx.OpenCompanyConnection
+	
+	
+	F.Intrinsic.Control.If(v.Caller.Switches,=,"M")
+		'this is where we load and bring up the mapper maintenance screen
+		f.Intrinsic.Control.CallSub(MaintCheckAndLoad)
+		gui.fMapMaint..Show	
+	f.Intrinsic.Control.Else
+		'we do the same load here we just dont bring up the maintenance screen
+		f.Intrinsic.Control.CallSub(MaintCheckAndLoad)
+		'this program supports Branch accounting. if branch is not used, it passes a NA which is what the file is expecting in the branch node
+		f.Intrinsic.Control.CallSub(GetBranch)
+		v.Global.sBranch.Set(v.Args.BRANCH)
+		Gui.F_AP_UPLOAD..Show
+	F.Intrinsic.Control.EndIf
+	
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",v.Caller.ScriptFile,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End 
+F.Intrinsic.Control.EndTry
+
+
+Program.Sub.Main.End
+Program.Sub.MaintCheckAndLoad.Start
+F.Intrinsic.Control.Try
+V.Local.sError.Declare
+
+	v.Local.sRet.Declare
+	v.Local.bExists.Declare
+	v.Local.sDate.Declare
+	v.Local.dDate.Declare
+	gui.fMapMaint.ddlDefSeq.AddItem("995000",0)
+	gui.fMapMaint.ddlDefSeq.AddItem("997000",1)
+	'dynamicaly create the table rather than having ARC disappoint us or the customer
+	f.ODBC.Connection!conx.TableExists("GCG_6881_MAPPING",v.Local.bExists)
+	f.Intrinsic.Control.If(v.Local.bExists.Not)
+		f.ODBC.Connection!conx.Execute("CREATE TABLE GCG_6881_MAPPING (PROFILE CHAR(10),HEADER_LINE BIT  DEFAULT '0' NOT NULL,VENDOR NUMERIC(2,0)  DEFAULT '0',INVOICE_NO NUMERIC(2,0)  DEFAULT '0',INVOICE_DATE NUMERIC(2,0)  DEFAULT '0',AMOUNT NUMERIC(2,0)  DEFAULT '0',GL_ACCOUNT NUMERIC(2,0)  DEFAULT '0',INVOICE_NOTES NUMERIC(2,0)  DEFAULT '0',JOB NUMERIC(2,0)  DEFAULT '0',SUFFIX NUMERIC(2,0)  DEFAULT '0',SEQ NUMERIC(2,0)  DEFAULT '0',INVOICE_DUE_DATE NUMERIC(2,0)  DEFAULT '0',PO NUMERIC(2,0)  DEFAULT '0',DEFAULT_SEQ CHAR(6) DEFAULT '995000',BRANCH NUMERIC(2,0)  DEFAULT '0',VERSION DATE);")
+	f.Intrinsic.Control.EndIf
+	'this is where we are checking if the version of the table is in line with the version of when this was deployed for the customer. if will drop the table and reload it. the mapping will have to be reconfigured. If a change is made to the table structure, update both the SQL queries here and update the global date variable so in case they have an earlier version it drops and adds the table with the new structure.
+	
+	f.Data.DataTable.CreateFromSQL("DtMap","conx","Select * from GCG_6881_MAPPING",True)
+	f.Intrinsic.Control.If(v.DataTable.DtMap.RowCount,=,0)
+		'when running from the actual upload, it will end the progrm
+		f.Intrinsic.Control.If(v.Caller.Switches,=,"")
+			f.Intrinsic.UI.Msgbox("Data from file has not been mapped. Please use the maintenance menu at AP > Administration > Universal Expense Upload Mapper (6881), to setup the field mapping. The program will end")
+			f.Intrinsic.Control.CallSub(Unload)
+		f.Intrinsic.Control.EndIf
+	f.Intrinsic.Control.Else
+		f.Intrinsic.Control.if(v.DataTable.DtMap(0).version!fieldval,<>,v.Global.dDate)
+			f.ODBC.Connection!conx.Execute("Drop table GCG_6881_MAPPING")
+			f.ODBC.Connection!conx.Execute("CREATE TABLE GCG_6881_MAPPING (PROFILE CHAR(10),HEADER_LINE BIT  DEFAULT '0' NOT NULL,VENDOR NUMERIC(2,0)  DEFAULT '0',INVOICE_NO NUMERIC(2,0)  DEFAULT '0',INVOICE_DATE NUMERIC(2,0)  DEFAULT '0',AMOUNT NUMERIC(2,0)  DEFAULT '0',GL_ACCOUNT NUMERIC(2,0)  DEFAULT '0',INVOICE_NOTES NUMERIC(2,0)  DEFAULT '0',JOB NUMERIC(2,0)  DEFAULT '0',SUFFIX NUMERIC(2,0)  DEFAULT '0',SEQ NUMERIC(2,0)  DEFAULT '0',INVOICE_DUE_DATE NUMERIC(2,0)  DEFAULT '0',PO NUMERIC(2,0)  DEFAULT '0',DEFAULT_SEQ CHAR(6) DEFAULT '995000',BRANCH NUMERIC(2,0)  DEFAULT '0',VERSION DATE);")
+			f.Intrinsic.UI.Msgbox("A change in the table structure has been detected and it has been updated. You will need to save the mapping again. Please use the maintenance menu at AP > Administration > Universal Expense Upload Mapper (6881), to setup the field mapping. If opening the upload, the program will end.")
+			'when running from the actual upload, it will end the program
+			f.Intrinsic.Control.If(v.Caller.Switches,=,"")
+				f.Intrinsic.Control.CallSub(Unload)
+			f.Intrinsic.Control.EndIf		
+		f.Intrinsic.Control.EndIf
+	f.Intrinsic.Control.EndIf
+	
+	' if maintenance, write to the screens
+	f.Intrinsic.Control.If(v.Caller.Switches,=,"M","AND",v.DataTable.DtMap.RowCount,<>,0)
+		gui.fMapMaint.chkHeaderLn.Value(v.DataTable.DtMap(0).HEADER_LINE!fieldVal)
+		gui.fMapMaint.txtVendorID.Text(v.DataTable.DtMap(0).VENDOR!fieldVal)
+		gui.fMapMaint.txtInvoiceNo.Text(v.DataTable.DtMap(0).INVOICE_NO!fieldVal)
+		gui.fMapMaint.txtInvoiceDate.Text(v.DataTable.DtMap(0).INVOICE_DATE!fieldVal)
+		gui.fMapMaint.txtAmt.Text(v.DataTable.DtMap(0).AMOUNT!fieldVal)
+		gui.fMapMaint.txtGLAcct.Text(v.DataTable.DtMap(0).GL_ACCOUNT!fieldVal)
+		gui.fMapMaint.txtInvNotes.Text(v.DataTable.DtMap(0).INVOICE_NOTES!fieldVal)
+		gui.fMapMaint.txtJob.Text(v.DataTable.DtMap(0).JOB!fieldVal)
+		gui.fMapMaint.txtSuffix.Text(v.DataTable.DtMap(0).SUFFIX!fieldVal)
+		gui.fMapMaint.txtSeq.Text(v.DataTable.DtMap(0).SEQ!fieldVal)
+		gui.fMapMaint.txtInvDueDate.Text(v.DataTable.DtMap(0).INVOICE_DUE_DATE!fieldVal)
+		gui.fMapMaint.txtPO.Text(v.DataTable.DtMap(0).PO!fieldVal)
+		gui.fMapMaint.ddlDefSeq.Text(v.DataTable.DtMap(0).DEFAULT_SEQ!fieldVal)
+		gui.fMapMaint.txtBranch.Text(v.DataTable.DtMap(0).BRANCH!fieldVal)
+	f.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",v.Caller.ScriptFile,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End 
+F.Intrinsic.Control.EndTry
+
+
+Program.Sub.MaintCheckAndLoad.End
+Program.Sub.cmdok_click.Start
+F.Intrinsic.Control.Try
+V.Local.sError.Declare
+	v.Local.iColindex.Declare
+	v.Local.iColindexSub.Declare
+	v.Local.iJob.Declare
+	v.Local.iSuf.Declare
+	v.Local.iSeq.Declare
+	v.Local.iJobSub.Declare
+	v.Local.iSufSub.Declare
+	v.Local.iSeqSub.Declare
+	V.Local.sFile.Declare(String)
+	V.Local.sText.Declare(String)
+	V.Local.iRet.Declare(Long)
+	v.Local.iForCountStart.Declare
+	V.Local.bRet.Declare(Boolean)
+	V.Local.iCount.Declare(Long)
+	V.Local.sRet.Declare(String)
+	V.Local.sTemp.Declare(String)
+	V.Local.iUB.Declare(Long)
+	V.Local.dRet.Declare(Date)
+	V.Local.sSeek.Declare(String)
+	V.Local.sHold.Declare(String)
+	V.Local.sInvoice.Declare(String)
+	V.Local.sMSG.Declare(String)
+	v.Local.bExists.Declare
+	v.Local.dDateHold.Declare
+	v.Local.dDateHold1.Declare
+	v.Local.iPaymentDays.Declare
+	v.Local.sSql.Declare
+	
+	
+	V.uGlobal.uUpload.Redim(-1,-1)
+	
+	' pull batch date from date picker
+	V.Global.BatchDate.Set(V.Screen.F_AP_UPLOAD!dtpBatch.Value)
+	F.Intrinsic.String.Format(V.Global.BatchDate,"MMDDYY",V.Global.BatchDate)
+	
+	V.Local.sFile.Set(V.Screen.F_AP_UPLOAD!txtFile.Text)
+	v.Global.sFile.Set(v.Local.sFile)
+	f.Intrinsic.File.GetPathFromFQN(v.Local.sFile,v.Global.sProcFolder)
+	'create a back folder from where this file is being picked from
+	f.Intrinsic.String.Build("{0}\Processed",v.Global.sProcFolder,v.Global.sProcFolder)
+	f.Intrinsic.File.GetFileNameFromFQN(v.Local.sFile,v.Global.sProcFile)
+	f.Intrinsic.String.Build("{0}\{1}",v.Global.sProcFolder,v.Global.sProcFile,v.Global.sProcFile)
+	
+	f.Intrinsic.File.DirExists(v.Global.sProcFolder,v.Local.bExists)
+	
+	f.Intrinsic.Control.If(v.Local.bExists.not)
+		f.Intrinsic.File.CreateDir(v.Global.sProcFolder)
+	f.Intrinsic.Control.EndIf
+	
+	
+	
+	F.Intrinsic.File.Exists(V.local.sFile,V.Local.bRet)
+	F.Intrinsic.Control.If(V.Local.bRet,=,True)
+		F.Intrinsic.File.File2String(V.Local.sFile,V.Local.sText)
+		F.Intrinsic.String.Replace(V.Local.sText,V.Ambient.DblQuote,"",V.local.sText)
+		F.Intrinsic.String.Split(V.Local.sText,V.Ambient.NewLine,V.Local.sText)
+		'if file consists a header line then start from 1 on the line split for loop, or else start from zero
+		f.Intrinsic.Control.If(v.DataTable.DtMap(0).header_line!fieldval)
+			v.Local.iForCountStart.Set(1)
+		f.Intrinsic.Control.Else
+			v.Local.iForCountStart.Set(0)
+		f.Intrinsic.Control.EndIf
+		'loop through the lines in the file
+		F.Intrinsic.Control.For(V.Local.iCount,v.Local.iForCountStart,V.Local.sText.UBound,1)
+			F.Intrinsic.Control.If(V.Local.sText(v.Local.iCount),<>,"")
+				F.Intrinsic.String.SplitCSV(V.Local.sText(v.Local.iCount),V.Local.sRet)
+				F.Intrinsic.Control.If(V.Local.sRet(1),<>,"")
+					F.Intrinsic.Control.If(V.uGlobal.uUpload.UBound,=,-1)
+						V.uGlobal.uUpload.Redim(0,0)
+					F.Intrinsic.Control.Else
+						V.Local.iUB.Set(V.uGlobal.uUpload.UBound)
+						F.Intrinsic.Math.Add(V.Local.iUB,1,V.Local.iUB)
+						V.uGlobal.uUpload.RedimPreserve(0,V.Local.iUB)
+					F.Intrinsic.Control.EndIf
+					'in all of the fields that i am trying to read, i am retreiving the column position as saved in the mapper and converting it to a zero based index as you can see below
+					'Invoice Date and filler MMDDYY 6
+					v.Local.iColindex.Set(v.DataTable.DtMap(0).INVOICE_DATE!fieldVal)
+					f.Intrinsic.Math.Sub(v.Local.iColindex,1,v.Local.iColindexSub)
+					
+					v.Local.sTemp.Set(V.Local.sRet(v.Local.iColindexSub).trim)
+					v.Local.dDateHold.Set(v.Local.sTemp)
+					F.Intrinsic.String.Format(v.Local.sTemp,"MMDDYY",V.Local.sTemp)
+					V.uGlobal.uUpload(v.Local.iUB)!InvoiceDate.Set(V.Local.sTemp)
+					
+					'Vendor # and reserved 6 + 1
+					v.Local.iColindex.Set(v.DataTable.DtMap(0).VENDOR!fieldVal)
+					f.Intrinsic.Math.Sub(v.Local.iColindex,1,v.Local.iColindexSub)
+					
+					v.Local.sTemp.Set(V.Local.sRet(v.Local.iColindexSub).trim)
+					'checking to see if vendor exists
+					F.Intrinsic.Control.CallSub(Vendor_check,"Vendor",v.Local.sTemp)
+					F.Intrinsic.Control.If(V.Args.Return,=,"True")
+						V.uGlobal.uUpload(v.Local.iUB)!Vendor.Set(v.Local.sTemp)		
+					F.Intrinsic.Control.Else
+						F.Intrinsic.String.Concat("Vendor ",v.Local.sTemp," does not exist",V.Local.sTemp)
+						F.Intrinsic.UI.Msgbox(V.Local.sTemp)
+						F.Intrinsic.Control.CallSub(unload)
+					F.Intrinsic.Control.EndIf
+					
+					'invoice due date
+					v.Local.iColindex.Set(v.DataTable.DtMap(0).INVOICE_DUE_DATE!fieldVal)
+					f.Intrinsic.Math.Sub(v.Local.iColindex,1,v.Local.iColindexSub)
+					v.Local.sTemp.Set(V.Local.sRet(v.Local.iColindexSub).trim)
+					
+					f.Intrinsic.Control.If(v.Local.iColindex,=,0)
+						V.uGlobal.uUpload(v.Local.iUB)!InvoiceDueDate.Set("")
+					f.Intrinsic.Control.Else
+						'check if due date is being passed and if so, if the field is empty we calculate the due date from the discount days/payment days from vendor options
+						f.Intrinsic.Control.If(v.Local.sTemp.Trim,=,"","OR",V.local.sRet(v.local.iColindexSub).trim,=,"OOB")
+							f.Intrinsic.String.Build("Select discount_days from V_VENDOR_PAY_TO where VENDOR = '{0}'",V.uGlobal.uUpload(v.Local.iUB)!Vendor,v.Local.sSql)
+							f.ODBC.Connection!conx.ExecuteAndReturn(v.Local.sSql,v.Local.iPaymentDays)
+							f.intrinsic.Date.DateAdd("D",v.Local.iPaymentDays,v.Local.dDateHold,v.Local.dDateHold)
+							F.Intrinsic.String.Format(v.Local.dDateHold,"MMDDYY",V.Local.sTemp)
+							V.uGlobal.uUpload(v.Local.iUB)!InvoiceDueDate.Set(V.Local.sTemp)
+						f.Intrinsic.Control.Else
+							v.Local.dDateHold1.Set(v.Local.sTemp.Trim)
+							F.Intrinsic.String.Format(v.Local.dDateHold1,"MMDDYY",V.Local.sTemp)
+							V.uGlobal.uUpload(v.Local.iUB)!InvoiceDueDate.Set(V.Local.sTemp)
+						
+						f.Intrinsic.Control.EndIf	
+					f.Intrinsic.Control.EndIf
+									
+					'invoice 16
+					v.Local.iColindex.Set(v.DataTable.DtMap(0).INVOICE_NO!fieldVal)
+					f.Intrinsic.Math.Sub(v.Local.iColindex,1,v.Local.iColindexSub)
+					v.Local.sTemp.Set(V.Local.sRet(v.Local.iColindexSub).trim)
+					F.Intrinsic.String.Right(v.Local.sTemp,15,V.Local.sInvoice)
+					V.uGlobal.uUpload(v.Local.iUB)!Invoice.Set(V.Local.sInvoice)
+					
+				
+					'Invoice Amt 16
+					v.Local.iColindex.Set(v.DataTable.DtMap(0).AMOUNT!fieldVal)
+					f.Intrinsic.Math.Sub(v.Local.iColindex,1,v.Local.iColindexSub)
+					v.Local.sTemp.Set(V.Local.sRet(v.Local.iColindexSub).trim)
+					F.Intrinsic.String.Replace(v.Local.sTemp,"$","",V.Local.sTemp)
+					F.Intrinsic.String.Format(V.Local.sTemp,"##############.00",V.Local.sTemp)
+					V.uGlobal.uUpload(v.Local.iUB)!InvoiceAmt.Set(V.Local.sTemp)
+					
+					'GL Acct 15 
+					v.Local.iColindex.Set(v.DataTable.DtMap(0).GL_ACCOUNT!fieldVal)
+					f.Intrinsic.Math.Sub(v.Local.iColindex,1,v.Local.iColindexSub)
+					v.Local.sTemp.Set(V.Local.sRet(v.Local.iColindexSub).trim)
+					
+					F.Intrinsic.String.RPad(V.Local.sTemp," ",15,V.Local.sTemp)
+					V.uGlobal.uUpload(v.Local.iUB)!GL.Set(V.Local.sTemp)
+					
+'					'checking to see if GL account exisits
+'					F.Intrinsic.Control.CallSub(Gl_check,"GL",V.Local.sTemp)
+'					F.Intrinsic.Control.If(V.Args.Return,=,"True")
+'						V.uGlobal.uUpload(v.Local.iUB)!GL.Set(V.Local.sTemp)
+'					F.Intrinsic.Control.Else
+'						F.Intrinsic.String.Concat("GL Account ",V.Local.sTemp," does not exist",V.Local.sTemp)
+'						F.Intrinsic.UI.Msgbox(V.Local.sTemp)
+'						F.Intrinsic.Control.CallSub(unload)
+'					F.Intrinsic.Control.EndIf
+					
+					v.Local.iJob.Set(v.DataTable.DtMap(0).Job!fieldVal)
+					f.Intrinsic.Math.Sub(v.Local.iJob,1,v.Local.iJobSub)
+					v.Local.iSuf.Set(v.DataTable.DtMap(0).suffix!fieldVal)
+					f.Intrinsic.Math.Sub(v.Local.iSuf,1,v.Local.iSufSub)
+					v.Local.iSeq.Set(v.DataTable.DtMap(0).seq!fieldVal)
+					f.Intrinsic.Math.Sub(v.Local.iSeq,1,v.Local.iSeqSub)
+					'Job/WO 6, suffix 3, Seq 6
+					
+					f.Intrinsic.Control.If(v.Local.iJob,=,0,"OR",v.Local.sRet(v.Local.iJobSub).trim,=,"",v.Local.sRet(v.Local.iJobSub).trim,=,"OOB")
+						V.uGlobal.uUpload(v.Local.iUB)!WO.Set("")
+						V.uGlobal.uUpload(v.Local.iUB)!Sfx.Set("")
+						V.uGlobal.uUpload(v.Local.iUB)!Seq.Set("")
+					f.Intrinsic.Control.Else
+						V.uGlobal.uUpload(v.Local.iUB)!WO.Set(v.Local.sRet(v.Local.iJobSub).trim)
+						f.Intrinsic.Control.If(v.Local.iSuf,=,0,"OR",v.Local.sRet(v.Local.iSufSub).trim,=,"OOB")
+							V.uGlobal.uUpload(v.Local.iUB)!Sfx.Set("")
+						f.Intrinsic.Control.else
+							V.uGlobal.uUpload(v.Local.iUB)!Sfx.Set(v.Local.sRet(v.Local.iSufSub).trim)
+						f.Intrinsic.Control.EndIf
+						'if nothing is passed in the Seq field when job is specified, upload against the default Seq that is being saved. the program saves the default as 995000 which is the miscellaneous sequence
+						f.Intrinsic.Control.If(v.Local.iSeq,=,0,"OR",v.Local.sRet(v.Local.iSeqSub).trim,=,"OOB",v.Local.sRet(v.Local.iSeqSub).trim,=,"")
+							V.uGlobal.uUpload(v.Local.iUB)!Seq.Set(v.DataTable.DtMap(0).DEFAULT_SEQ!fieldVal)
+						f.Intrinsic.Control.Else
+							V.uGlobal.uUpload(v.Local.iUB)!Seq.Set(v.Local.sRet(v.Local.iSeqSub).trim)
+						f.Intrinsic.Control.EndIf
+						
+					f.Intrinsic.Control.EndIf
+					
+					
+					'Invoice notes 30
+					v.Local.iColindex.Set(v.DataTable.DtMap(0).INVOICE_NOTES!fieldVal)
+					f.Intrinsic.Math.Sub(v.Local.iColindex,1,v.Local.iColindexSub)
+					v.Local.sTemp.Set(V.Local.sRet(v.Local.iColindexSub).trim)
+					
+					f.Intrinsic.Control.If(v.Local.sTemp,=,"OOB")
+						V.uGlobal.uUpload(v.Local.iUB)!InvoiceNotes.Set("")
+					f.Intrinsic.Control.Else
+						V.uGlobal.uUpload(v.Local.iUB)!InvoiceNotes.Set(v.Local.sTemp)
+					
+					f.Intrinsic.Control.EndIf
+					
+					'PO 7
+					v.Local.iColindex.Set(v.DataTable.DtMap(0).PO!fieldVal)
+					f.Intrinsic.Math.Sub(v.Local.iColindex,1,v.Local.iColindexSub)
+					v.Local.sTemp.Set(V.Local.sRet(v.Local.iColindexSub).trim)
+					
+					f.Intrinsic.Control.If(v.Local.sTemp,=,"OOB")
+						V.uGlobal.uUpload(v.Local.iUB)!PO.Set("")
+					f.Intrinsic.Control.Else
+						V.uGlobal.uUpload(v.Local.iUB)!PO.Set(v.Local.sTemp.trim)
+					
+					f.Intrinsic.Control.EndIf
+					
+					'Branch 2
+					v.Local.iColindex.Set(v.DataTable.DtMap(0).BRANCH!fieldVal)
+					f.Intrinsic.Math.Sub(v.Local.iColindex,1,v.Local.iColindexSub)
+					v.Local.sTemp.Set(V.Local.sRet(v.Local.iColindexSub).trim)
+					
+					f.Intrinsic.Control.If(v.Local.sTemp,=,"OOB","OR",v.Local.sTemp.Trim,=,"")
+						V.uGlobal.uUpload(v.Local.iUB)!Branch.Set(v.Global.sBranch)
+					f.Intrinsic.Control.Else
+						V.uGlobal.uUpload(v.Local.iUB)!Branch.Set(v.Local.sTemp.trim)
+					
+					f.Intrinsic.Control.EndIf
+					F.Intrinsic.String.Right("                         ",15,v.Local.sHold)
+					V.uGlobal.uUpload(v.Local.iUB)!Column31.Set(v.Local.sHold)
+					'adding the data to the datatable in the lib file.
+					
+					f.Data.DataTable.AddRow("AP043UP1","PostDate",v.Global.BatchDate,"Vendor",V.uGlobal.uUpload(v.Local.iUB)!Vendor,"Invoice",V.uGlobal.uUpload(v.Local.iUB)!Invoice,"InvoiceDate",V.uGlobal.uUpload(v.Local.iUB)!InvoiceDate,"Amount",V.uGlobal.uUpload(v.Local.iUB)!InvoiceAmt,"GLAccount",V.uGlobal.uUpload(v.Local.iUB)!GL,"InvoiceNotes",V.uGlobal.uUpload(v.Local.iUB)!InvoiceNotes,"WorkOrder",V.uGlobal.uUpload(v.Local.iUB)!WO,"WorkSuff",V.uGlobal.uUpload(v.Local.iUB)!Sfx,"WorkSeq",V.uGlobal.uUpload(v.Local.iUB)!Seq,"Branch",V.uGlobal.uUpload(v.Local.iUB)!Branch,"InvoiceDueDate",V.uGlobal.uUpload(v.Local.iUB)!InvoiceDueDate,"PurchaseOrder",V.uGlobal.uUpload(v.Local.iUB)!PO)
+				F.Intrinsic.Control.EndIf
+			F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.Next(V.Local.iCount)
+	F.Intrinsic.Control.EndIf
+	
+	F.Intrinsic.Control.CallSub(Buildfile)
+	
+	F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",v.Caller.ScriptFile,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End 
+F.Intrinsic.Control.EndTry
+
+Program.Sub.cmdok_click.End
+Program.Sub.cmdbrowser_click.Start
+F.Intrinsic.Control.Try
+V.Local.sError.Declare
+
+	V.Local.sFile.Declare(String)
+	V.Local.bRet.Declare(Boolean)
+	
+	
+	'F.Intrinsic.Debug.Stop
+	
+	F.Intrinsic.UI.ShowOpenFileDialog("",".csv","",V.Local.sFile)
+	F.Intrinsic.File.Exists(V.Local.sFile,V.Local.bRet)
+	F.Intrinsic.Control.If(V.Local.bRet,=,True)
+		Gui.F_AP_UPLOAD.txtFile.text(V.Local.sFile)
+	F.Intrinsic.Control.EndIf
+	
+	
+	F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",v.Caller.ScriptFile,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End 
+F.Intrinsic.Control.EndTry
+
+Program.Sub.cmdbrowser_click.End
+
+Program.Sub.f_ap_upload_resize.Start
+Program.Sub.f_ap_upload_resize.End
+
+Program.Sub.Buildfile.Start
+F.Intrinsic.Control.Try
+V.Local.sError.Declare
+	
+	V.Local.sFile.Declare(String)
+	V.Local.sText.Declare(String)
+	V.Local.bRet.Declare(Boolean)
+	V.Local.iCount.Declare(Long)
+	V.Local.sTemp.Declare(String)
+	V.Local.sParam.Declare(String)
+	V.Local.iret.Declare
+	
+	'calling the call wrapper from the lib file
+	f.Intrinsic.Control.CallSub(AP043UP1,"CallWrapperType",0)
+	
+	'f.Intrinsic.UI.Msgbox(Variable.Ambient.CallWrapperReturn)
+	
+	f.Intrinsic.File.MoveFile(v.Global.sFile,v.Global.sProcFile,v.Local.iret)
+
+	F.Intrinsic.Control.CallSub(unload)
+	
+	
+	F.Intrinsic.Control.ExitSub
+	
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",v.Caller.ScriptFile,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End 
+F.Intrinsic.Control.EndTry	
+	
+	
+Program.Sub.Buildfile.End
+
+Program.Sub.Vendor_Check.Start
+F.Intrinsic.Control.Try
+V.Local.sError.Declare
+	
+	V.local.sQuery.Declare(String)
+	V.Local.sRet.Declare(String)
+	
+	F.Intrinsic.String.Concat("Select * From VENDOR_MASTER where VENDOR='",V.Args.Vendor.Trim,"'",V.Local.sQuery)
+	F.ODBC.Connection!Conx.OpenRecordsetRO("rst",V.Local.sQuery)
+	F.Intrinsic.Control.If(V.ODBC.Conx!rst.EOF,=,True)
+		V.Local.sRet.Set("False")
+	F.Intrinsic.Control.Else
+		V.local.sRet.Set("True")
+	F.Intrinsic.Control.EndIf
+	F.ODBC.Conx!rst.Close
+	
+	F.Intrinsic.Variable.AddRV("Return",V.Local.sRet)
+	
+	F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",v.Caller.ScriptFile,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End 
+F.Intrinsic.Control.EndTry
+
+Program.Sub.Vendor_Check.End
+Program.Sub.GL_Check.Start
+F.Intrinsic.Control.Try
+V.Local.sError.Declare
+	
+	V.local.sQuery.Declare(String)
+	V.Local.sRet.Declare(String)
+	
+	F.Intrinsic.String.Concat("Select * From GL_MASTER where GL_ACCOUNT='",V.Args.GL.Trim,"'",V.Local.sQuery)
+	F.ODBC.Connection!Conx.OpenRecordsetRO("rst",V.Local.sQuery)
+	F.Intrinsic.Control.If(V.ODBC.Conx!rst.EOF,=,True)
+		V.Local.sRet.Set("False")
+	F.Intrinsic.Control.Else
+		V.local.sRet.Set("True")
+	F.Intrinsic.Control.EndIf
+	F.ODBC.Conx!rst.Close
+	
+	F.Intrinsic.Variable.AddRV("Return",V.Local.sRet)
+	F.Intrinsic.Control.ExitSub
+	
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",v.Caller.ScriptFile,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End 
+F.Intrinsic.Control.EndTry
+
+Program.Sub.GL_Check.End
+
+Program.Sub.cmdSave_Click.Start
+F.Intrinsic.Control.Try
+V.Local.sError.Declare
+
+	'saving mapper data to table
+	v.Local.sSql.Declare
+	
+	gui.fMapMaint..Enabled(false)
+	'if the required fields are not mapped, it wont save
+	f.Intrinsic.Control.If(v.Screen.fMapMaint!txtVendorID.Text.trim,=,"0","OR",v.Screen.fMapMaint!txtInvoiceNo.Text.trim,=,"0",v.Screen.fMapMaint!txtInvoiceDate.Text.trim,=,"0",v.Screen.fMapMaint!txtAmt.Text.trim,=,"0",v.Screen.fMapMaint!txtGLAcct.Text.trim,=,"0")
+		f.Intrinsic.UI.Msgbox("Please fill the field mapping for the required fields, highlighted in bold, before you save.")
+		gui.fMapMaint..Enabled(True)
+		f.Intrinsic.Control.ExitSub
+	f.Intrinsic.Control.EndIf
+	'insert if its a new record else update. I also added a profile for future addition if they want to browse between multiple files, but for now its hard coded.
+	f.Intrinsic.Control.If(v.DataTable.DtMap.RowCount,=,0)
+		f.Intrinsic.String.Build("INSERT INTO GCG_6881_MAPPING (HEADER_LINE, VENDOR, INVOICE_NO, INVOICE_DATE, AMOUNT,GL_ACCOUNT,INVOICE_NOTES,JOB,SUFFIX,SEQ,INVOICE_DUE_DATE,PO,DEFAULT_SEQ,PROFILE,VERSION,BRANCH) VALUES ({0}, {1}, {2}, {3}, {4},{5},{6},{7},{8},{9},{10},{11},'{12}','{13}','{14}','{15}')",v.Screen.fMapMaint!chkHeaderLn.Value,v.Screen.fMapMaint!txtVendorID.Text.trim,v.Screen.fMapMaint!txtInvoiceNo.Text.trim,v.Screen.fMapMaint!txtInvoiceDate.Text.trim,v.Screen.fMapMaint!txtAmt.Text.trim,v.Screen.fMapMaint!txtGLAcct.Text.trim,v.Screen.fMapMaint!txtInvNotes.Text.trim,v.Screen.fMapMaint!txtJob.Text.trim,v.Screen.fMapMaint!txtSuffix.Text.trim,v.Screen.fMapMaint!txtSeq.Text.trim,v.Screen.fMapMaint!txtInvDueDate.Text.trim,v.Screen.fMapMaint!txtPO.Text.trim,v.Screen.fMapMaint!ddlDefSeq.Value.trim,"FIRST",v.Global.dDate.PervasiveDate,v.Screen.fMapMaint!txtBranch.Text.trim,v.Local.sSql)
+	
+	f.Intrinsic.Control.Else
+		f.Intrinsic.String.Build("Update GCG_6881_MAPPING set HEADER_LINE = {0}, VENDOR = {1}, INVOICE_NO = {2}, INVOICE_DATE = {3}, AMOUNT = {4},GL_ACCOUNT = {5},INVOICE_NOTES = {6},JOB = {7},SUFFIX = {8},SEQ = {9},INVOICE_DUE_DATE = {10},PO = {11},DEFAULT_SEQ = '{12}',BRANCH = '{13}'",v.Screen.fMapMaint!chkHeaderLn.Value,v.Screen.fMapMaint!txtVendorID.Text.trim,v.Screen.fMapMaint!txtInvoiceNo.Text.trim,v.Screen.fMapMaint!txtInvoiceDate.Text.trim,v.Screen.fMapMaint!txtAmt.Text.trim,v.Screen.fMapMaint!txtGLAcct.Text.trim,v.Screen.fMapMaint!txtInvNotes.Text.trim,v.Screen.fMapMaint!txtJob.Text.trim,v.Screen.fMapMaint!txtSuffix.Text.trim,v.Screen.fMapMaint!txtSeq.Text.trim,v.Screen.fMapMaint!txtInvDueDate.Text.trim,v.Screen.fMapMaint!txtPO.Text.trim,v.Screen.fMapMaint!ddlDefSeq.Text.trim,v.Screen.fMapMaint!txtBranch.Text.trim,v.Local.sSql)
+	f.Intrinsic.Control.EndIf
+	
+	f.ODBC.Connection!conx.Execute(v.Local.sSql)
+	gui.fMapMaint..Enabled(True)
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",v.Caller.ScriptFile,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End 
+F.Intrinsic.Control.EndTry
+Program.Sub.cmdSave_Click.End
+
+Program.Sub.UnLoad.Start
+f.ODBC.Connection!conx.Close
+F.Intrinsic.Control.End
+Program.Sub.UnLoad.End
+
+Program.Sub.GetBranch.Start
+F.Intrinsic.Control.Try
+V.Local.sError.Declare
+	
+	v.Local.sSql.Declare
+	v.Local.sRet.Declare
+	v.Local.bBranch.Declare
+	
+	F.Global.General.ReadOption(140004,0,False,1,V.Local.bBranch)
+	F.Intrinsic.Control.If(V.Local.bBranch.Not)
+		V.Local.sRet.Set("NA")
+	F.Intrinsic.Control.Else
+		F.Intrinsic.String.Build("select RTRIM(BRANCH_ID) from V_ACCTG_BRANCH where CO_CODE = '{0}'", V.Caller.CompanyCode, V.Local.SSQL)
+		F.ODBC.Connection!Conx.ExecuteAndReturn(V.Local.sSQL,V.Local.sRet)
+		'if no branch is set up, we use NA
+		F.Intrinsic.Control.If(V.Ambient.ExecuteAndReturnEOF)
+			V.Local.sRet.Set("NA")
+		F.Intrinsic.Control.Else
+			F.Intrinsic.Control.If(V.Local.sRet.Trim,=,"")
+				V.Local.sRet.Set("NA")
+			F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.EndIf
+	F.Intrinsic.Variable.AddRV("BRANCH",V.Local.sRet)
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End 
+F.Intrinsic.Control.EndTry
+Program.Sub.GetBranch.End
+
+Program.Sub.Comments.Start
+${$5$}$2.0.0.0$}$2
+${$6$}$adsouza$}$20220921175218433$}$JX3L09Cgehg7O+lKYSb2ur8FFsJUp9u/WmgyyrTZC1RprfiVrTZmuu7dik2JgdB+0IJS3AgJoV8=
+Program.Sub.Comments.End
