@@ -1,0 +1,144 @@
+Program.Sub.Preflight.Start
+v.Global.sAP043UP1.Declare
+F.Data.Datatable.Create("AP043UP1",True)
+F.Data.Datatable.AddColumn("AP043UP1","PostDate","String","      ")
+F.Data.Datatable.AddColumn("AP043UP1","Vendor","String","      ")
+F.Data.Datatable.AddColumn("AP043UP1","Invoice","String","               ")
+F.Data.Datatable.AddColumn("AP043UP1","InvoiceDate","String","      ")
+F.Data.Datatable.AddColumn("AP043UP1","Amount","String",)
+F.Data.Datatable.AddColumn("AP043UP1","GLAccount","String","               ")
+F.Data.Datatable.AddColumn("AP043UP1","TaxableFlag","String"," ")
+F.Data.Datatable.AddColumn("AP043UP1","TaxCode","String","     ")
+F.Data.Datatable.AddColumn("AP043UP1","InvoiceNotes","String")
+F.Data.Datatable.AddColumn("AP043UP1","BookSelfAccessTax","String"," ")
+F.Data.Datatable.AddColumn("AP043UP1","WorkOrder","String","      ")
+F.Data.Datatable.AddColumn("AP043UP1","WorkSuff","String","   ")
+F.Data.Datatable.AddColumn("AP043UP1","WorkSeq","String","      ")
+F.Data.Datatable.AddColumn("AP043UP1","Branch","String","  ")
+F.Data.Datatable.AddColumn("AP043UP1","InvoiceDueDate","String","      ")
+F.Data.Datatable.AddColumn("AP043UP1","PurchaseOrder","String","       ")
+F.Data.Datatable.AddColumn("AP043UP1","Buyer","String","   ")
+F.Data.Datatable.AddColumn("AP043UP1","Voucher","String","       ")
+F.Data.Datatable.AddColumn("AP043UP1","VatTaxRule","String","  ")
+Program.Sub.Preflight.End
+
+Program.Sub.AP043UP1Sync.Start
+F.Intrinsic.Control.Try
+	F.Intrinsic.Control.CallSub(AP043UP1,"CallWrapperType",0)
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.CallSub(CatchErrorAP043UP1,"Sub",V.Ambient.CurrentSubroutine,"ErrNo",V.Ambient.ErrorNumber,"ErrDesc",V.Ambient.ErrorDescription)
+F.Intrinsic.Control.EndTry
+Program.Sub.AP043UP1Sync.End
+
+Program.Sub.AP043UP1ASync.Start
+F.Intrinsic.Control.Try
+	F.Intrinsic.Control.CallSub(AP043UP1,"CallWrapperType",1)
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.CallSub(CatchErrorAP043UP1,"Sub",V.Ambient.CurrentSubroutine,"ErrNo",V.Ambient.ErrorNumber,"ErrDesc",V.Ambient.ErrorDescription)
+F.Intrinsic.Control.EndTry
+Program.Sub.AP043UP1ASync.End
+
+Program.Sub.AP043UP1.Start
+F.Intrinsic.Control.Try
+	V.Local.sFilePath.Declare(String)
+	V.Local.sFileContents.Declare(String)
+	V.Local.sRet.Declare(String)
+	V.Local.iCount.Declare(Long)
+	V.Local.sBackupFile.Declare
+	V.Local.sTimeStamp.Declare
+	f.Intrinsic.String.Format(v.Ambient.Now,"YYYYMMDD HHNNSS",v.Local.sTimeStamp)
+	F.Intrinsic.String.Build("{0}\APBATCH_UPLOADbb.TXT",V.Caller.FilesDir,V.Local.sFilePath)
+	F.Intrinsic.String.Build("{0}\APAUTO_{1}.TXT",V.Caller.FilesDir,v.Local.sTimeStamp,V.Local.sBackupFile)
+	
+	'Create dataview, create string from it, close dataview, write string to file, then finally call the callwrapper accoring to how the programmer called
+	F.Intrinsic.Control.If(V.DataTable.AP043UP1.RowCount,>,0)
+		'Format data in each row as needed by the upload program
+		F.Intrinsic.Control.For(V.Local.iCount,0,V.DataTable.AP043UP1.RowCount--,1)
+			F.Intrinsic.String.RPad(V.DataTable.AP043UP1(V.Local.iCount).PostDate!FieldVal," ",6,V.Local.sRet)
+			F.Data.DataTable.SetValue("AP043UP1",V.Local.iCount,"PostDate",V.Local.sRet)
+			
+			F.Intrinsic.String.RPad(V.DataTable.AP043UP1(V.Local.iCount).Vendor!FieldVal," ",6,V.Local.sRet)
+			F.Data.DataTable.SetValue("AP043UP1",V.Local.iCount,"Vendor",V.Local.sRet)
+			
+			F.Intrinsic.String.RPad(V.DataTable.AP043UP1(V.Local.iCount).Invoice!FieldVal," ",15,V.Local.sRet)
+			F.Data.DataTable.SetValue("AP043UP1",V.Local.iCount,"Invoice",V.Local.sRet)
+			
+			F.Intrinsic.String.RPad(V.DataTable.AP043UP1(V.Local.iCount).InvoiceDate!FieldVal," ",6,V.Local.sRet)
+			F.Data.DataTable.SetValue("AP043UP1",V.Local.iCount,"InvoiceDate",V.Local.sRet)
+			
+			F.Intrinsic.String.Format(V.DataTable.AP043UP1(V.Local.iCount).Amount!FieldVal,"0.00",V.Local.sRet)
+			F.Data.DataTable.SetValue("AP043UP1",V.Local.iCount,"Amount",V.Local.sRet)
+			
+			F.Intrinsic.String.RPad(V.DataTable.AP043UP1(V.Local.iCount).GLAccount!FieldVal," ",15,V.Local.sRet)
+			F.Data.DataTable.SetValue("AP043UP1",V.Local.iCount,"GLAccount",V.Local.sRet)
+			
+			F.Intrinsic.String.RPad(V.DataTable.AP043UP1(V.Local.iCount).TaxableFlag!FieldVal," ",1,V.Local.sRet)
+			F.Data.DataTable.SetValue("AP043UP1",V.Local.iCount,"TaxableFlag",V.Local.sRet)
+			
+			F.Intrinsic.String.RPad(V.DataTable.AP043UP1(V.Local.iCount).TaxCode!FieldVal," ",5,V.Local.sRet)
+			F.Data.DataTable.SetValue("AP043UP1",V.Local.iCount,"TaxCode",V.Local.sRet)
+			
+			F.Intrinsic.String.RPad(V.DataTable.AP043UP1(V.Local.iCount).InvoiceNotes!FieldVal," ",30,V.Local.sRet)
+			F.Data.DataTable.SetValue("AP043UP1",V.Local.iCount,"InvoiceNotes",V.Local.sRet)
+			
+			F.Intrinsic.String.RPad(V.DataTable.AP043UP1(V.Local.iCount).BookSelfAccessTax!FieldVal," ",1,V.Local.sRet)
+			F.Data.DataTable.SetValue("AP043UP1",V.Local.iCount,"BookSelfAccessTax",V.Local.sRet)
+			
+			F.Intrinsic.String.RPad(V.DataTable.AP043UP1(V.Local.iCount).WorkOrder!FieldVal," ",6,V.Local.sRet)
+			F.Data.DataTable.SetValue("AP043UP1",V.Local.iCount,"WorkOrder",V.Local.sRet)
+			
+			F.Intrinsic.String.RPad(V.DataTable.AP043UP1(V.Local.iCount).WorkSuff!FieldVal," ",3,V.Local.sRet)
+			F.Data.DataTable.SetValue("AP043UP1",V.Local.iCount,"WorkSuff",V.Local.sRet)
+			
+			F.Intrinsic.String.RPad(V.DataTable.AP043UP1(V.Local.iCount).WorkSeq!FieldVal," ",6,V.Local.sRet)
+			F.Data.DataTable.SetValue("AP043UP1",V.Local.iCount,"WorkSeq",V.Local.sRet)
+			
+			F.Intrinsic.String.RPad(V.DataTable.AP043UP1(V.Local.iCount).Branch!FieldVal," ",2,V.Local.sRet)
+			F.Data.DataTable.SetValue("AP043UP1",V.Local.iCount,"Branch",V.Local.sRet)
+			
+			F.Intrinsic.String.RPad(V.DataTable.AP043UP1(V.Local.iCount).InvoiceDueDate!FieldVal," ",6,V.Local.sRet)
+			F.Data.DataTable.SetValue("AP043UP1",V.Local.iCount,"InvoiceDueDate",V.Local.sRet)
+			
+			F.Intrinsic.String.LPad(V.DataTable.AP043UP1(V.Local.iCount).PurchaseOrder!FieldVal," ",7,V.Local.sRet)
+			F.Data.DataTable.SetValue("AP043UP1",V.Local.iCount,"PurchaseOrder",V.Local.sRet)
+			
+			F.Intrinsic.String.RPad(V.DataTable.AP043UP1(V.Local.iCount).Buyer!FieldVal," ",3,V.Local.sRet)
+			F.Data.DataTable.SetValue("AP043UP1",V.Local.iCount,"Buyer",V.Local.sRet)
+			
+			F.Intrinsic.String.RPad(V.DataTable.AP043UP1(V.Local.iCount).Voucher!FieldVal," ",7,V.Local.sRet)
+			F.Data.DataTable.SetValue("AP043UP1",V.Local.iCount,"Voucher",V.Local.sRet)
+			
+			F.Intrinsic.String.RPad(V.DataTable.AP043UP1(V.Local.iCount).VatTaxRule!FieldVal," ",2,V.Local.sRet)
+			F.Data.DataTable.SetValue("AP043UP1",V.Local.iCount,"VatTaxRule",V.Local.sRet)
+		F.Intrinsic.Control.Next(V.Local.iCount)
+	
+		F.Data.DataView.Create("AP043UP1","AP043UP1View",22)
+		F.Data.DataView.ToString("AP043UP1","AP043UP1View","*!*",V.Ambient.NewLine,V.Local.sFileContents)
+		F.Data.DataView.Close("AP043UP1","AP043UP1View")
+	
+		F.Intrinsic.File.String2File(V.Local.sFilePath,V.Local.sFileContents)
+		F.Intrinsic.File.String2File(V.Local.sBackupFile,V.Local.sFileContents)
+		
+		F.Intrinsic.Control.SelectCase(V.Args.CallWrapperType)
+			F.Intrinsic.Control.Case(0)
+					f.Global.General.CallWrappersync(50,"AP043MNU")
+			F.Intrinsic.Control.Case(1)
+					f.Global.General.CallWrapperasync(50,"AP043MNU")
+		F.Intrinsic.Control.EndSelect
+
+	F.Intrinsic.Control.EndIf
+	
+	F.Data.DataTable.DeleteRow("AP043UP1")
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.CallSub(CatchErrorAP043UP1,"Sub",V.Ambient.CurrentSubroutine,"ErrNo",V.Ambient.ErrorNumber,"ErrDesc",V.Ambient.ErrorDescription)
+F.Intrinsic.Control.EndTry
+Program.Sub.AP043UP1.End
+
+Program.Sub.CatchErrorAP043UP1.Start
+F.Intrinsic.String.Build("{0}*!*{1}*!*{2}", V.Args.Sub, V.Args.ErrNo, V.Args.ErrDesc, V.Global.sAP043UP1)
+Program.Sub.CatchErrorAP043UP1.End
+
+Program.Sub.Comments.Start
+${$5$}$2.0.0.0$}$2
+${$6$}$tmendes$}$20210817082631375$}$eiKQygbtM+i/BxpMxRAdSHWUX5iJCc/xFWXDz9LczwT0d+CBuHPdjPufihcpfeATnHY/t7ul5ho=
+Program.Sub.Comments.End
